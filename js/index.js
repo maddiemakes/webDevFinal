@@ -1,8 +1,4 @@
 var isAnnoy = 0;
-var scroll = 0;
-var bodyelem = document.getElementById("bodyelem");
-var pelem = document.getElementById("pelem");
-var h1elem = document.getElementById("h1elem");
 
 function randInt(a, b) {
     return Math.floor((Math.random() * (b - a + 1)) + a);
@@ -18,75 +14,21 @@ function randomColor() {
 }
 
 
-//this code block adapted from http://www.javascriptkit.com/dhtmltutors/parallaxscrolling/
-/* code block begin */
-//if(scroll = 1) {
-//    var bodyelem = document.getElementById("bodyelem");
-//    window.requestAnimationFrame = window.requestAnimationFrame
-//     || window.mozRequestAnimationFrame
-//     || window.webkitRequestAnimationFrame
-//     || window.msRequestAnimationFrame
-//     || function(f){setTimeout(f, 1000/60)}
-//
-//    function backgroundScroll(){
-//     var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically 
-//     //bubble1.style.top = -scrolltop * .2 + 'px' // move bubble1 at 20% of scroll rate
-//     //bubble2.style.top = -scrolltop * .5 + 'px' // move bubble2 at 50% of scroll rate
-//     var rColor = randomColor();
-//     bodyelem.style.background = rColor[0];
-//    }
-//
-//    window.addEventListener('scroll', function(){ // on page scroll
-//     requestAnimationFrame(backgroundScroll) // call parallaxbubbles() on next available screen paint
-//    }, false)
-//}
-/* code block end */
-
 
 function annoy() {
     var bodyelem = document.getElementById("bodyelem");
     var pelem = document.getElementById("pelem");
     var h1elem = document.getElementById("h1elem");
+    
     isAnnoy = (isAnnoy + 1)%5;
+    
     switch (isAnnoy) {
         case 4:
             break;
         case 3:
-            window.requestAnimationFrame = window.requestAnimationFrame
-             || window.mozRequestAnimationFrame
-             || window.webkitRequestAnimationFrame
-             || window.msRequestAnimationFrame
-             || function(f){setTimeout(f, 1000/60)}
-
-            function fontScroll(){
-             var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically 
-             var rColor = randomColor();
-             pelem.style.color = rColor[0];
-             rColor = randomColor();
-             h1elem.style.color = rColor[1];
-            }
-            
-            window.addEventListener('scroll', function(){ // on page scroll
-             requestAnimationFrame(fontScroll) // call parallaxbubbles() on next available screen paint
-            }, false)
             break;
         case 2:
             h1elem.style.fontFamily = "\"Comic Sans MS\", cursive, sans-serif";
-            window.requestAnimationFrame = window.requestAnimationFrame
-             || window.mozRequestAnimationFrame
-             || window.webkitRequestAnimationFrame
-             || window.msRequestAnimationFrame
-             || function(f){setTimeout(f, 1000/60)}
-
-            function backgroundScroll(){
-             var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically 
-             var rColor = randomColor();
-             bodyelem.style.background = rColor[0];
-            }
-
-            window.addEventListener('scroll', function(){ // on page scroll
-             requestAnimationFrame(backgroundScroll) // call parallaxbubbles() on next available screen paint
-            }, false)
             break;
         case 1:
             var rColor = randomColor();
@@ -97,8 +39,41 @@ function annoy() {
         case 0:
             bodyelem.style.background = "white";
             h1elem.style.fontFamily = "Caecilia, Times, serif";
+            h1elem.style.color = "#1aba52";
             pelem.style.color = "rgb(56,56,56)";
             pelem.style.fontFamily = "Gotham, Helvetica, Arial, sans-serif";
             break;
     }
+    
+//this code block adapted from http://www.javascriptkit.com/dhtmltutors/parallaxscrolling/
+/* code block begin */
+    window.requestAnimationFrame = window.requestAnimationFrame
+    || window.mozRequestAnimationFrame
+    || window.webkitRequestAnimationFrame
+    || window.msRequestAnimationFrame
+    || function(f){setTimeout(f, 1000/60)};
+
+    function fontScroll(){
+        var rColor = randomColor();
+        pelem.style.color = rColor[0];
+        rColor = randomColor();
+        h1elem.style.color = rColor[1];
+    }
+    
+    function backgroundScroll(){
+        var rColor = randomColor();
+        bodyelem.style.background = rColor[0];
+    }
+    
+    window.addEventListener('scroll', function(){ // on page scroll
+        if ((isAnnoy %5) >= 3) { 
+            /*global requestAnimationFrame*/ requestAnimationFrame(fontScroll); 
+        }
+         if ((isAnnoy %5) >= 2) { 
+             requestAnimationFrame(backgroundScroll); 
+         }
+    }, false);
+/* code block end */
+
+    document.getElementById("annoyButton").value = "Annoyance level: " + isAnnoy;
 }
