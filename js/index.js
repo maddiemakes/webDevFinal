@@ -17,13 +17,16 @@ function randomColor() {
 
 function annoy() {
     var bodyelem = document.getElementById("bodyelem");
-    var pelem = document.getElementById("pelem");
+    var pelem1 = document.getElementById("pelem1");
     var h1elem = document.getElementById("h1elem");
+    var pelem2 = document.getElementById("pelem2");
+    var h2elem = document.getElementById("h2elem");
     
     isAnnoy = (isAnnoy + 1)%5;
     
     switch (isAnnoy) {
         case 4:
+            h1elem.innerHTML = "H&#x1f3ba;W tO   J&#x1f3ba;hN CENA &#x1f3ba;";
             break;
         case 3:
             break;
@@ -33,15 +36,16 @@ function annoy() {
         case 1:
             var rColor = randomColor();
             bodyelem.style.background = rColor[0];
-            pelem.style.color = rColor[1];
-            pelem.style.fontFamily = "\"Comic Sans MS\", cursive, sans-serif";
+            pelem1.style.color = rColor[1];
+            pelem1.style.fontFamily = "\"Comic Sans MS\", cursive, sans-serif";
             break;
         case 0:
+            h1elem.innerHTML = "How to Make a Good Website";
             bodyelem.style.background = "white";
             h1elem.style.fontFamily = "Caecilia, Times, serif";
             h1elem.style.color = "#1aba52";
-            pelem.style.color = "rgb(56,56,56)";
-            pelem.style.fontFamily = "Gotham, Helvetica, Arial, sans-serif";
+            pelem1.style.color = "rgb(56,56,56)";
+            pelem1.style.fontFamily = "Gotham, Helvetica, Arial, sans-serif";
             break;
     }
     
@@ -53,16 +57,22 @@ function annoy() {
     || window.msRequestAnimationFrame
     || function(f){setTimeout(f, 1000/60)};
 
-    function fontScroll(){
+    function fontScroll() {
         var rColor = randomColor();
-        pelem.style.color = rColor[0];
+        pelem1.style.color = rColor[0];
         rColor = randomColor();
         h1elem.style.color = rColor[1];
     }
     
-    function backgroundScroll(){
+    function backgroundScroll() {
         var rColor = randomColor();
         bodyelem.style.background = rColor[0];
+    }
+    
+    function fontSizeScroll() {
+        var scrolltop = window.pageYOffset; // get number of pixels document has scrolled vertically 
+        pelem1.style.fontSize = -scrolltop % 2 + 14 + 'px'; // move bubble2 at 50% of scroll rate
+        
     }
     
     window.addEventListener('scroll', function(){ // on page scroll
@@ -72,6 +82,9 @@ function annoy() {
          if ((isAnnoy %5) >= 2) { 
              requestAnimationFrame(backgroundScroll); 
          }
+        if ((isAnnoy %5) >= 4) {
+            requestAnimationFrame(fontSizeScroll);
+        }
     }, false);
 /* code block end */
 
