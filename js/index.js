@@ -28,7 +28,7 @@ function annoy() {
     switch (isAnnoy) {
         case 4:
             h1elem.innerHTML = "H&#x1f3ba;W tO   J&#x1f3ba;hN CENA &#x1f3ba;";
-            h1elem2.innerHTML = "<embed src=\"http://www.sheepproductions.com/billy/billy.swf?autoplay=true&f0=http://cs.ncssm.edu/~wells16j/webDevFinal/john.mp3&t0=jOHn c3NA&total=1\" quality=\"high\" wmode=\"transparent\" width=\"200\" height=\"10\" name=\"billy\" align=\"middle\" type=\"application/x-shockwave-flash\" />";
+            h1elem2.innerHTML = "<embed src=\"http://www.sheepproductions.com/billy/billy.swf?autoplay=true&f0=/john.mp3&t0=jOHn c3NA&total=1\" quality=\"high\" wmode=\"transparent\" width=\"200\" height=\"10\" name=\"billy\" align=\"left\" type=\"application/x-shockwave-flash\" />";
             break;
         case 3:
             break;
