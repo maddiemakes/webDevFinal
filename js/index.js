@@ -19,6 +19,7 @@ function annoy() {
     var bodyelem = document.getElementById("bodyelem");
     var pelem1 = document.getElementById("pelem1");
     var h1elem = document.getElementById("h1elem");
+    var h1elem2 = document.getElementById("h1elem2");
     var pelem2 = document.getElementById("pelem2");
     var h2elem = document.getElementById("h2elem");
     
@@ -27,6 +28,7 @@ function annoy() {
     switch (isAnnoy) {
         case 4:
             h1elem.innerHTML = "H&#x1f3ba;W tO   J&#x1f3ba;hN CENA &#x1f3ba;";
+            h1elem2.innerHTML = "<embed src=\"http://www.sheepproductions.com/billy/billy.swf?autoplay=true&f0=http://cs.ncssm.edu/~wells16j/webDevFinal/john.mp3&t0=jOHn c3NA&total=1\" quality=\"high\" wmode=\"transparent\" width=\"200\" height=\"10\" name=\"billy\" align=\"middle\" type=\"application/x-shockwave-flash\" />";
             break;
         case 3:
             break;
