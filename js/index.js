@@ -21,9 +21,7 @@ function annoy() {
     var h1elem = document.getElementById("h1elem");
     var pelem2 = document.getElementById("pelem2");
     var h2elem = document.getElementById("h2elem");
-    
     isAnnoy = (isAnnoy + 1)%5;
-    
     switch (isAnnoy) {
         case 4:
             h1elem.innerHTML = "<embed src=\"http://www.sheepproductions.com/billy/billy.swf?autoplay=true&f0=/john.mp3&t0=jOHn c3NA&total=1\" quality=\"high\" wmode=\"transparent\" width=\"200\" height=\"10\" name=\"billy\" align=\"middle\" type=\"application/x-shockwave-flash\" /> H&#x1f3ba;W tO   J&#x1f3ba;hN CENA &#x1f3ba;";
@@ -41,7 +39,6 @@ function annoy() {
             break;
         case 0:
             h1elem.innerHTML = "How to Make a Good Website";
-            h1elem2.innerHTML = "";
             bodyelem.style.background = "white";
             h1elem.style.fontFamily = "Caecilia, Times, serif";
             h1elem.style.color = "#1aba52";
@@ -72,7 +69,7 @@ function annoy() {
     
     function fontSizeScroll() {
         var scrolltop = window.pageYOffset; // get number of pixels document has scrolled vertically 
-        pelem1.style.fontSize = -scrolltop % 2 + 14 + 'px'; // move bubble2 at 50% of scroll rate
+        pelem1.style.fontSize = -scrolltop % 2 + 14 + 'px'; 
         
     }
     
